@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3>Token Pairs Display with Flask and Dexscreener</h3>
+                    <p>Created a Flask application to dynamically display cryptocurrency token pairs using the Dexscreener API. The project involves:</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li><strong>Dynamic HTML Generation:</strong> Generates HTML content dynamically to show token pairs and related details.</li>
+                        <li><strong>API Integration:</strong> Integrates with Dexscreener to fetch real-time token pair data.</li>
+                        <li><strong>Data Visualization:</strong> Uses Matplotlib to visualize token price trends and other relevant data.</li>
+                    </ul>
+                    <p><strong>Tools and Libraries Used:</strong></p>
+                    <ul>
+                        <li>Python</li>
+                        <li><code>Flask</code> for web development</li>
+                        <li><code>requests</code> for API calls</li>
+                        <li><code>matplotlib.pyplot</code> for charts</li>
+                    </ul>
+                    <p><strong>Code:</strong> <a href="URL_TO_YOUR_CODE" target="_blank">View Code</a></p>
+                </div>
+                <div class="project-card">
+                    <h3>OCR Text Capture</h3>
+                    <p>This project involves capturing text from a designated screen area using OCR (Optical Character Recognition). It displays the extracted text in a semi-transparent, resizable window.</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li><strong>Screen Capture:</strong> Captures a specified area of the screen using the Pillow library.</li>
+                        <li><strong>OCR Processing:</strong> Extracts text from the captured image using Tesseract OCR.</li>
+                        <li><strong>Text Display:</strong> Shows the processed text and cleaned items in a transparent, resizable window.</li>
+                        <li><strong>Hotkeys:</strong> Supports hotkeys for capturing text and toggling the display window.</li>
+                    </ul>
+                    <p><strong>Tools and Libraries Used:</strong></p>
+                    <ul>
+                        <li>Python</li>
+                        <li>OCR with Tesseract</li>
+                        <li>GUI with Tkinter</li>
+                        <li>Screen capture and image processing with PIL and OpenCV</li>
+                    </ul>
+                    <p><strong>Code:</strong> <a href="URL_TO_YOUR_CODE" target="_blank">View Code</a></p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Mouse Movement Detection and Analysis</h3>
+                    <p>This project focuses on detecting and analyzing mouse movements in video footage. Key features include:</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li><strong>Mouse Movement Detection:</strong> Detects mouse movement between consecutive video frames using OpenCV.</li>
+                        <li><strong>Velocity Calculation:</strong> Computes the velocity of mouse movement on the Y-axis and analyzes it over time.</li>
+                        <li><strong>Visualization:</strong> Plots mouse velocity data using Matplotlib to compare different scenarios.</li>
+                    </ul>
+                    <p><strong>Tools and Libraries Used:</strong></p>
+                    <ul>
+                        <li>Python</li>
+                        <li><code>OpenCV</code> for Computer Vision</li>
+                        <li><code>NumPy</code></li>
+                        <li><code>Matplotlib</code> for Visualization</li>
+                    </ul>
+                    <p><strong>Code:</strong> <a href="URL_TO_YOUR_CODE" target="_blank">View Code</a></p>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Solar System Visualization</h3>
+                <p>This project features a dynamic, animated representation of the solar system. It includes a central sun surrounded by orbiting planets and moons, with each celestial body animated to simulate their orbits.</p>
+                <p><strong>Key Features:</strong></p>
+                <ul>
+                    <li><strong>Central Sun:</strong> The sun is placed at the center, with planets and moons orbiting around it.</li>
+                    <li><strong>Animated Orbits:</strong> Planets and moons have animated orbits to simulate their movement around the sun.</li>
+                    <li><strong>Interactive Elements:</strong> Users can interact with the visualization to explore different aspects of the solar system.</li>
+                </ul>
+                <p><strong>Tools and Libraries Used:</strong></p>
+                <ul>
+                    <li>JavaScript</li>
+                    <li>HTML5 Canvas or SVG for rendering</li>
+                    <li>Animation techniques</li>
+                </ul>
+                <p><strong>Example Link:</strong> <a href="https://j-danger.github.io/Solarsystem/" target="_blank">https://j-danger.github.io/Solarsystem/</a></p>
+                <p><strong>Code:</strong> <a href="https://github.com/J-danger/Solarsystem" target="_blank">View Code</a></p>
+            </div>
+            
+            
+            <div class="project-card">
+                <h3>Data Analysis and Visualization with Python</h3>
+                <p>Developed a Python script to fetch, process, and analyze cryptocurrency trading data from the Mandala and Binance APIs. The script performs the following tasks:</p>
+                <ul>
+                    <li><strong>Data Fetching:</strong> Retrieves market data and trading pairs from Mandala’s API and average price data from Binance’s API.</li>
+                    <li><strong>Data Processing:</strong> Filters and processes trading pairs and their volumes, excludes specific assets, and computes total volume in USDT.</li>
+                    <li><strong>Data Analysis:</strong> Calculates the USD value for each trading pair and summarizes the total trading volume and number of active pairs.</li>
+                    <li><strong>Data Presentation:</strong> Utilizes Matplotlib for potential data visualization and PrettyTable for displaying results in a formatted table.</li>
+                </ul>
+                <p><strong>Tools and Libraries Used:</strong></p>
+                <ul>
+                    <li>Python</li>
+                    <li><code>requests</code> for API interactions</li>
+                    <li><code>defaultdict</code> for data aggregation</li>
+                    <li><code>matplotlib.pyplot</code> for visualization (potentially)</li>
+                    <li><code>PrettyTable</code> for tabular display</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html>
