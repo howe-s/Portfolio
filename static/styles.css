@@ -61,6 +61,11 @@ section {
     display: flex;
 }
 
+.project-image {
+    margin-right: 10px;
+    padding-left: 10px;
+}
+
 footer {
     background: #333;
     color: #fff;

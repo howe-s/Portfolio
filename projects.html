@@ -80,6 +80,50 @@
             <div class="project-card">
                 <div class="project-content">
                     <div class="project-text">
+                        <h3>Data Analysis and Visualization with Python</h3>
+                        <p>Developed a Python script to fetch, process, and analyze cryptocurrency trading data from the Mandala and Binance APIs.</p>
+                        <p><strong>Key Features:</strong></p>
+                        <ul>
+                            <li><strong>Data Fetching:</strong> Retrieves market data and trading pairs from Mandala’s API and average price data from Binance’s API.</li>
+                            <li><strong>Data Processing:</strong> Filters and processes trading pairs and their volumes, excludes specific assets, and computes total volume in USDT.</li>
+                            <li><strong>Data Analysis:</strong> Calculates the USD value for each trading pair and summarizes the total trading volume and number of active pairs.</li>
+                            <li><strong>Data Presentation:</strong> Utilizes Matplotlib for potential data visualization and PrettyTable for displaying results in a formatted table.</li>
+                        </ul>
+                        <p><strong>Tools and Libraries Used:</strong></p>
+                        <ul>
+                            <li>Python</li>
+                            <li><code>requests</code> for API interactions</li>
+                            <li><code>defaultdict</code> for data aggregation</li>
+                            <li><code>matplotlib.pyplot</code> for visualization (potentially)</li>
+                            <li><code>PrettyTable</code> for tabular display</li>
+                        </ul>
+                        <p><strong>Code:</strong> <a href="https://github.com/J-danger/Solarsystem" target="_blank">View Code</a></p>
+                    </div>
+                    <div class="project-image">
+                        <p><strong>Code Example</strong></p>
+                        <p>
+                            <code>for x in volumeMandala:</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;listedPairs = list(x.values())</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;listedAsset = listedPairs[0]</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;myPairs = listedPairs[5]</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;listedVolume = float(listedPairs[11])</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;totalCount = totalCount + 1</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;if listedAsset in error_list:</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;None</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;elif listedVolume > 0:</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my_List.append(listedAsset)</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my_Pairs.append(myPairs)</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;volume_list.append(listedVolume)</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;volumeCount = volumeCount + 1</code><br>
+                        </p>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <div class="project-text">
                         <h3>Solar System Visualization</h3>
                         <p>This project features a dynamic, animated representation of the solar system. It includes a central sun surrounded by orbiting planets and moons, with each celestial body animated to simulate their orbits.</p>
                         <p><strong>Key Features:</strong></p>
@@ -101,25 +145,6 @@
                         <img src="solarsystem.jpg" alt="Solar System Visualization">
                     </div>
                 </div>
-            </div>
-            <div class="project-card">
-                <h3>Data Analysis and Visualization with Python</h3>
-                <p>Developed a Python script to fetch, process, and analyze cryptocurrency trading data from the Mandala and Binance APIs. The script performs the following tasks:</p>
-                <ul>
-                    <li><strong>Data Fetching:</strong> Retrieves market data and trading pairs from Mandala’s API and average price data from Binance’s API.</li>
-                    <li><strong>Data Processing:</strong> Filters and processes trading pairs and their volumes, excludes specific assets, and computes total volume in USDT.</li>
-                    <li><strong>Data Analysis:</strong> Calculates the USD value for each trading pair and summarizes the total trading volume and number of active pairs.</li>
-                    <li><strong>Data Presentation:</strong> Utilizes Matplotlib for potential data visualization and PrettyTable for displaying results in a formatted table.</li>
-                </ul>
-                <p><strong>Tools and Libraries Used:</strong></p>
-                <ul>
-                    <li>Python</li>
-                    <li><code>requests</code> for API interactions</li>
-                    <li><code>defaultdict</code> for data aggregation</li>
-                    <li><code>matplotlib.pyplot</code> for visualization (potentially)</li>
-                    <li><code>PrettyTable</code> for tabular display</li>
-                </ul>
-                <p><strong>Code:</strong> <a href="https://github.com/J-danger/Solarsystem" target="_blank">View Code</a></p>
             </div>
         </div>
         </div>
