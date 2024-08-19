@@ -116,6 +116,7 @@ section {
 .project-image {
     margin-right: 10px;
     padding-left: 10px;
+    overflow: hidden;
 }
 
 footer {
@@ -123,7 +124,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
+    position: absolute;
     width: 100%;
     bottom: 0;
     left: 0;
