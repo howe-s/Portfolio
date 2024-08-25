@@ -86,39 +86,6 @@ section {
     padding-bottom: 30px;
 }
 
-.projects {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.project-card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    flex: 1;
-    min-width: 200px;
-    margin-bottom: 15px;
-    padding: 16px;
-    margin: 16px;
-    
-}
-
-.project-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    display: flex;
-}
-
-.project-image {
-    margin-right: 10px;
-    padding-left: 10px;
-    overflow: hidden;
-}
-
 footer {
     background: #333;
     color: #fff;
@@ -156,5 +123,15 @@ footer {
 
 .one-section:not(:last-child) {
     margin-right: 10px;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+
+
 }
 

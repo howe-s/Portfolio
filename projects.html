@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
@@ -17,11 +18,10 @@
 
     <section id="projects">
         <div class="container">
-            <h2>Projects</h2>
             <div class="projects">
                 <div class="project-card">
-                    <h3>Token Pairs Display with Flask and Dexscreener</h3>
-                    <p>Created a Flask application to dynamically display cryptocurrency token pairs using the Dexscreener API. The project involves:</p>
+                    <h3>Token Pair and Arbitrage Screener</h3>
+                    <p>A Flask application to dynamically display cryptocurrency token pairs and identify Arbitrage opprotunities using the Dexscreener API.</p>
                     <p><strong>Key Features:</strong></p>
                     <ul>
                         <li><strong>Dynamic HTML Generation:</strong> Generates HTML content dynamically to show token pairs and related details.</li>
@@ -36,6 +36,74 @@
                         <li><code>matplotlib.pyplot</code> for charts</li>
                     </ul>
                     <p><strong>Code:</strong> <a href="https://github.com/J-danger/Dexscreener" target="_blank">View Code</a></p>
+                </div>
+                <div class="project-card">
+                    <h3>Price Prediction</h3>
+                    <p>Predicts <strong>today's</strong> Bitcoin price using an LSTM neural network. Trained on historical data from <code>bitcoin.csv</code> and visualized with interactive candlestick charts.</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li><strong>Data Source:</strong> Historical Bitcoin data from <code>bitcoin.csv</code>.</li>
+                        <li><strong>Model:</strong> LSTM neural network for price prediction.</li>
+                        <li><strong>Visualization:</strong> Candlestick charts with Plotly for actual vs. predicted prices.</li>
+                    </ul>
+                    <p><strong>Tools and Libraries Used:</strong></p>
+                    <ul>
+                        <li>Python</li>
+                        <li>NumPy</li>
+                        <li>TensorFlow</li>
+                        <li>scikit-learn</li>
+                        <li>Plotly</li>
+                    </ul>
+                    <p><strong>Code:</strong> <a href="https://github.com/J-danger/BitcoinPricePredict" target="_blank">View Code</a></p>
+                    <div class="project-image"></div>
+                </div>
+                <div class="project-card">
+                    <h3>Bitcoin Candlestick Chart Flask App</h3>
+                    <p>A Flask web application that generates an interactive Bitcoin candlestick chart with additional features such as regression lines, volume data, and market cap information.</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li><strong>Candlestick Chart:</strong> Visualizes Bitcoin price data (open, high, low, close).</li>
+                        <li><strong>Volume Trace:</strong> Displays trading volume as a bar chart.</li>
+                        <li><strong>Market Cap Trace:</strong> Shows market capitalization as a line chart.</li>
+                        <li><strong>Linear Regression Line:</strong> Adds a linear regression line for trend analysis.</li>
+                        <li><strong>Polynomial Regression Line:</strong> Captures non-linear trends with a polynomial regression line.</li>
+                        <li><strong>Exponential Smoothing:</strong> Highlights trends with exponential smoothing.</li>
+                    </ul>
+                    <p><strong>Requirements:</strong></p>
+                    <ul>
+                        <li>Python 3.x</li>
+                        <li>Flask</li>
+                        <li>pandas</li>
+                        <li>plotly</li>
+                        <li>numpy</li>
+                    </ul>
+                    <p><strong>Code:</strong> <a href="https://github.com/J-danger/BitcoinCandlestickChart" target="_blank">View Code</a></p>
+                    <div class="project-image"></div>
+                </div>                                               
+                <div class="project-card">
+                    <div class="project-content">
+                        <div class="project-text">
+                            <h3>Data Analysis and Visualization with Python</h3>
+                            <p>Developed a Python script to fetch, process, and analyze cryptocurrency trading data from the Mandala and Binance APIs.</p>
+                            <p><strong>Key Features:</strong></p>
+                            <ul>
+                                <li><strong>Data Fetching:</strong> Retrieves market data and trading pairs from Mandala’s API and average price data from Binance’s API.</li>
+                                <li><strong>Processing:</strong> Filters and processes trading pairs and their volumes, excludes specific assets, and computes total volume in USDT.</li>
+                                <li><strong>Analysis:</strong> Calculates the USD value for each trading pair and summarizes the total trading volume and number of active pairs.</li>
+                                <li><strong>Presentation:</strong> Utilizes Matplotlib for potential data visualization and PrettyTable for displaying results in a formatted table.</li>
+                            </ul>
+                            <p><strong>Tools and Libraries Used:</strong></p>
+                            <ul>
+                                <li>Python</li>
+                                <li><code>requests</code> for API interactions</li>
+                                <li><code>defaultdict</code> for data aggregation</li>
+                                <li><code>matplotlib.pyplot</code> for visualization (potentially)</li>
+                                <li><code>PrettyTable</code> for tabular display</li>
+                            </ul>
+                            <p><strong>Code:</strong> <a href="https://github.com/J-danger/Volume_Test/tree/5e8b3910e9441e923779c560a6410481793cb5b2" target="_blank">View Code</a></p>
+                        </div>
+                        <div class="project-image"></div> 
+                    </div>
                 </div>
                 <div class="project-card">
                     <h3>OCR Text Capture</h3>
@@ -55,8 +123,7 @@
                         <li>Screen capture and image processing with PIL and OpenCV</li>
                     </ul>
                     <p><strong>Code:</strong> <a href="https://github.com/J-danger/d2rangecheck" target="_blank">View Code</a></p>
-                </div>
-                
+                </div>                
                 <div class="project-card">
                     <h3>Mouse Movement Detection and Analysis</h3>
                     <p>This project focuses on detecting and analyzing mouse movements in video footage. Key features include:</p>
@@ -75,77 +142,8 @@
                     </ul>
                     <p><strong>Code:</strong> <a href="https://github.com/J-danger/MouseVelocityPlot" target="_blank">View Code</a></p>
                 </div>
+
             </div>
-            <div class="project-card">
-                <div class="project-content">
-                    <div class="project-text">
-                        <h3>Data Analysis and Visualization with Python</h3>
-                        <p>Developed a Python script to fetch, process, and analyze cryptocurrency trading data from the Mandala and Binance APIs.</p>
-                        <p><strong>Key Features:</strong></p>
-                        <ul>
-                            <li><strong>Data Fetching:</strong> Retrieves market data and trading pairs from Mandala’s API and average price data from Binance’s API.</li>
-                            <li><strong>Data Processing:</strong> Filters and processes trading pairs and their volumes, excludes specific assets, and computes total volume in USDT.</li>
-                            <li><strong>Data Analysis:</strong> Calculates the USD value for each trading pair and summarizes the total trading volume and number of active pairs.</li>
-                            <li><strong>Data Presentation:</strong> Utilizes Matplotlib for potential data visualization and PrettyTable for displaying results in a formatted table.</li>
-                        </ul>
-                        <p><strong>Tools and Libraries Used:</strong></p>
-                        <ul>
-                            <li>Python</li>
-                            <li><code>requests</code> for API interactions</li>
-                            <li><code>defaultdict</code> for data aggregation</li>
-                            <li><code>matplotlib.pyplot</code> for visualization (potentially)</li>
-                            <li><code>PrettyTable</code> for tabular display</li>
-                        </ul>
-                        <p><strong>Code:</strong> <a href="https://github.com/J-danger/Volume_Test/tree/5e8b3910e9441e923779c560a6410481793cb5b2" target="_blank">View Code</a></p>
-                    </div>
-                    <div class="project-image">
-                        <p><strong>Code Example</strong></p>
-                        <p>
-                            <code>for x in volumeMandala:</code><br>
-                            <code>&nbsp;&nbsp;&nbsp;&nbsp;listedPairs = list(x.values())</code><br>
-                            <code>&nbsp;&nbsp;&nbsp;&nbsp;listedAsset = listedPairs[0]</code><br>
-                            <code>&nbsp;&nbsp;&nbsp;&nbsp;myPairs = listedPairs[5]</code><br>
-                            <code>&nbsp;&nbsp;&nbsp;&nbsp;listedVolume = float(listedPairs[11])</code><br>
-                            <code>&nbsp;&nbsp;&nbsp;&nbsp;totalCount = totalCount + 1</code><br>
-                            <code>&nbsp;&nbsp;&nbsp;&nbsp;if listedAsset in error_list:</code><br>
-                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;None</code><br>
-                            <code>&nbsp;&nbsp;&nbsp;&nbsp;elif listedVolume > 0:</code><br>
-                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my_List.append(listedAsset)</code><br>
-                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;my_Pairs.append(myPairs)</code><br>
-                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;volume_list.append(listedVolume)</code><br>
-                            <code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;volumeCount = volumeCount + 1</code><br>
-                        </p>
-                    </div>
-                    
-                    
-                </div>
-            </div>
-            <div class="project-card" id="project-card-last">
-                <div class="project-content">
-                    <div class="project-text">
-                        <h3>Solar System Visualization</h3>
-                        <p>This project features a dynamic, animated representation of the solar system. It includes a central sun surrounded by orbiting planets and moons, with each celestial body animated to simulate their orbits.</p>
-                        <p><strong>Key Features:</strong></p>
-                        <ul>
-                            <li><strong>Central Sun:</strong> The sun is placed at the center, with planets and moons orbiting around it.</li>
-                            <li><strong>Animated Orbits:</strong> Planets and moons have animated orbits to simulate their movement around the sun.</li>
-                            <li><strong>Interactive Elements:</strong> Users can interact with the visualization to explore different aspects of the solar system.</li>
-                        </ul>
-                        <p><strong>Tools and Libraries Used:</strong></p>
-                        <ul>
-                            <li>JavaScript</li>
-                            <li>HTML5 Canvas or SVG for rendering</li>
-                            <li>Animation techniques</li>
-                        </ul>
-                        <p><strong>Example Link:</strong> <a href="https://j-danger.github.io/Solarsystem/" target="_blank">https://j-danger.github.io/Solarsystem/</a></p>
-                        <p><strong>Code:</strong> <a href="https://github.com/J-danger/Solarsystem" target="_blank">View Code</a></p>
-                    </div>
-                    <div class="project-image">
-                        <img src="solarsystem.jpg" alt="Solar System Visualization">
-                    </div>
-                </div>
-            </div>
-        </div>
         </div>
     </section>
 
