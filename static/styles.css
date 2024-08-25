@@ -3,13 +3,19 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    padding-top: 50px; /* Adjust this value based on the height of your fixed header */
 }
 
 header {
     background: #333;
     color: #fff;
     padding: 10px 0;
-    text-align: center;
+    text-align: left;
+    position: fixed; /* Fixes the header in place */
+    width: 100%; /* Ensures the header takes up the full width */
+    top: 0; /* Positions it at the top of the page */
+    left: 0;
+    z-index: 1000; /* Makes sure it stays above other content */
 }
 
 nav {
@@ -23,7 +29,6 @@ nav a {
     text-decoration: none;
     padding: 0 15px;
 }
-
 
 .container-home {
     background-color: #f4f4f4;
@@ -71,7 +76,6 @@ nav a {
     background: #555;
 }
 
-
 section {
     padding: 20px;
 }
@@ -108,7 +112,6 @@ footer {
     bottom: 0;
     left: 0;
     margin: 0;
-    
 }
 
 .three-section-container {
@@ -125,13 +128,30 @@ footer {
     margin-right: 10px;
 }
 
+.projects {
+    display: inline-flex;
+    flex-wrap: wrap; /* Allows cards to wrap to the next line if needed */
+    justify-content: center; 
+    gap: 20px; /* Adds spacing between cards */
+    position: flex;
+    /* margin-left: 120px; */
+    /* width: 80% */
+}
+
 .project-card {
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    margin: 10px;
-
-
+    box-sizing: border-box; /* Ensures padding is included in the width */
+    max-width: 45%;
+    min-width: 375px; 
+    /* min-width: 40%; */
+    margin-bottom: 10px;
 }
 
+.container-list {
+    left: 0;
+    /* width: fit-content; */
+    position: fixed;
+}
