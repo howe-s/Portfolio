@@ -114,6 +114,10 @@ footer {
     margin: 0;
 }
 
+.projects { 
+    height: 100vh;
+}
+
 .three-section-container {
     display: flex;
     justify-content: space-between;
@@ -134,6 +138,7 @@ footer {
     justify-content: center; 
     gap: 20px; /* Adds spacing between cards */
     position: flex;
+    height: fit-content;
     /* margin-left: 120px; */
     /* width: 80% */
 }
@@ -144,7 +149,7 @@ footer {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     box-sizing: border-box; /* Ensures padding is included in the width */
-    max-width: 45%;
+    max-width: 25%;
     min-width: 375px; 
     /* min-width: 40%; */
     margin-bottom: 10px;
@@ -155,3 +160,31 @@ footer {
     /* width: fit-content; */
     position: fixed;
 }
+
+
+.container-contact {
+    margin-top: 20px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    margin-top: 200px;
+}
+
+.contact-links a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.3em;
+    margin: 0 10px;
+}
+
+.contact-links a i {
+    margin-right: 8px;
+}
+
+.contact-links a:hover {
+    color: #007bff;
+}
+
