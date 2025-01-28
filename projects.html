@@ -16,38 +16,20 @@
         </nav>
     </header>
     <div class="flex-container">
-        <!-- <div class="container-list">
-            <div id="list-example" class="list-group">
-                <a class="list-group-item list-group-item-action" href="#python">Python</a>
-                <a class="list-group-item list-group-item-action" href="#flask">Flask</a>
-                <a class="list-group-item list-group-item-action" href="#requests">requests</a>
-                <a class="list-group-item list-group-item-action" href="#matplotlib">matplotlib</a>
-                <a class="list-group-item list-group-item-action" href="#numpy">NumPy</a>
-                <a class="list-group-item list-group-item-action" href="#tensorflow">TensorFlow</a>
-                <a class="list-group-item list-group-item-action" href="#scikit-learn">scikit-learn</a>
-                <a class="list-group-item list-group-item-action" href="#plotly">Plotly</a>
-                <a class="list-group-item list-group-item-action" href="#pandas">pandas</a>
-                <a class="list-group-item list-group-item-action" href="#pillow">Pillow</a>
-                <a class="list-group-item list-group-item-action" href="#tesseract">Tesseract</a>
-                <a class="list-group-item list-group-item-action" href="#tkinter">Tkinter</a>
-                <a class="list-group-item list-group-item-action" href="#opencv">OpenCV</a>
-            </div>
-        </div> -->
-
         <section id="projects">
             <div class="projects">
                 <div class="project-card">
                     <h3>Token Pair and Arbitrage Screener</h3>
-                    <p>A Flask application to dynamically display cryptocurrency token pairs and identify Arbitrage opprotunities using the Dexscreener API.</p>
+                    <p>A Flask application to dynamically display cryptocurrency token pairs and identify Arbitrage opportunities using the Dexscreener API.</p>
                     <p><strong>Key Features:</strong></p>
                     <ul>
                         <li><strong>Dynamic HTML Generation:</strong> Generates HTML content dynamically to show token pairs and related details.</li>
                         <li><strong>API Integration:</strong> Integrates with Dexscreener to fetch real-time token pair data.</li>
-                        <li><strong>Data Visualization:</strong> Uses Matplotlib to visualize token price trends and other relevant data.</li>
+                        <li><strong>Data Visualization:</strong> Uses <code>matplotlib.pyplot</code> to visualize token price trends and other relevant data.</li>
                     </ul>
                     <p><strong>Tools and Libraries Used:</strong></p>
                     <ul>
-                        <li>Python</li>
+                        <li><code>Python 3.x</code></li>
                         <li><code>Flask</code> for web development</li>
                         <li><code>requests</code> for API calls</li>
                         <li><code>matplotlib.pyplot</code> for charts</li>
@@ -55,21 +37,37 @@
                     <p><strong>Code:</strong> <a href="https://github.com/J-danger/Arbscreener" target="_blank">View Code</a></p>
                 </div>
                 <div class="project-card">
+                    <h3>Block Balance Checker</h3>
+                    <p>A Flask to check your Solana wallet balance at a certain block</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li><strong>SolanaScan CSV support:</strong> Drag and drop your transcation history.</li>
+                        <li><strong>Block Selection:</strong> See your historical balance on a specified day.</li>                        
+                    </ul>
+                    <p><strong>Tools and Libraries Used:</strong></p>
+                    <ul>                        
+                        <li><code>JavaScript</code></li> 
+                        <li><code>Public RPC Nodes Feeds</code></li> 
+                        
+                    </ul>
+                    <p><strong>Code:</strong> <a href="https://github.com/J-danger/Arbscreener" target="_blank">View Code</a></p>
+                </div>
+                <!-- <div class="project-card">
                     <h3>Price Prediction</h3>
                     <p>Predicts <strong>today's</strong> Bitcoin price using an LSTM neural network. Trained on historical data from <code>bitcoin.csv</code> and visualized with interactive candlestick charts.</p>
                     <p><strong>Key Features:</strong></p>
                     <ul>
                         <li><strong>Data Source:</strong> Historical Bitcoin data from <code>bitcoin.csv</code>.</li>
                         <li><strong>Model:</strong> LSTM neural network for price prediction.</li>
-                        <li><strong>Visualization:</strong> Candlestick charts with Plotly for actual vs. predicted prices.</li>
+                        <li><strong>Visualization:</strong> Candlestick charts with <code>Plotly</code> for actual vs. predicted prices.</li>
                     </ul>
                     <p><strong>Tools and Libraries Used:</strong></p>
                     <ul>
-                        <li>Python</li>
-                        <li>NumPy</li>
-                        <li>TensorFlow</li>
-                        <li>scikit-learn</li>
-                        <li>Plotly</li>
+                        <li><code>Python 3.x</code></li>
+                        <li><code>NumPy</code></li>
+                        <li><code>TensorFlow</code></li>
+                        <li><code>scikit-learn</code></li>
+                        <li><code>Plotly</code></li>
                     </ul>
                     <p><strong>Code:</strong> <a href="https://github.com/J-danger/BitcoinPricePredict" target="_blank">View Code</a></p>
                     <div class="project-image"></div>
@@ -88,11 +86,11 @@
                     </ul>
                     <p><strong>Requirements:</strong></p>
                     <ul>
-                        <li>Python 3.x</li>
-                        <li>Flask</li>
-                        <li>pandas</li>
-                        <li>plotly</li>
-                        <li>numpy</li>
+                        <li><code>Python 3.x</code></li>
+                        <li><code>Flask</code></li>
+                        <li><code>pandas</code></li>
+                        <li><code>plotly</code></li>
+                        <li><code>numpy</code></li>
                     </ul>
                     <p><strong>Code:</strong> <a href="https://github.com/J-danger/BitcoinCandlestickChart" target="_blank">View Code</a></p>
                     <div class="project-image"></div>
@@ -107,11 +105,11 @@
                                 <li><strong>Data Fetching:</strong> Retrieves market data and trading pairs from Mandala’s API and average price data from Binance’s API.</li>
                                 <li><strong>Processing:</strong> Filters and processes trading pairs and their volumes, excludes specific assets, and computes total volume in USDT.</li>
                                 <li><strong>Analysis:</strong> Calculates the USD value for each trading pair and summarizes the total trading volume and number of active pairs.</li>
-                                <li><strong>Presentation:</strong> Utilizes Matplotlib for potential data visualization and PrettyTable for displaying results in a formatted table.</li>
+                                <li><strong>Presentation:</strong> Utilizes <code>Matplotlib</code> for potential data visualization and <code>PrettyTable</code> for displaying results in a formatted table.</li>
                             </ul>
                             <p><strong>Tools and Libraries Used:</strong></p>
                             <ul>
-                                <li>Python</li>
+                                <li><code>Python 3.x</code></li>                    
                                 <li><code>requests</code> for API interactions</li>
                                 <li><code>defaultdict</code> for data aggregation</li>
                                 <li><code>matplotlib.pyplot</code> for visualization (potentially)</li>
@@ -127,17 +125,17 @@
                     <p>This project involves capturing text from a designated screen area using OCR (Optical Character Recognition). It displays the extracted text in a semi-transparent, resizable window.</p>
                     <p><strong>Key Features:</strong></p>
                     <ul>
-                        <li><strong>Screen Capture:</strong> Captures a specified area of the screen using the Pillow library.</li>
-                        <li><strong>OCR Processing:</strong> Extracts text from the captured image using Tesseract OCR.</li>
+                        <li><strong>Screen Capture:</strong> Captures a specified area of the screen using the <code>Pillow</code> library.</li>
+                        <li><strong>OCR Processing:</strong> Extracts text from the captured image using <code>Tesseract</code> OCR.</li>
                         <li><strong>Text Display:</strong> Shows the processed text and cleaned items in a transparent, resizable window.</li>
                         <li><strong>Hotkeys:</strong> Supports hotkeys for capturing text and toggling the display window.</li>
                     </ul>
                     <p><strong>Tools and Libraries Used:</strong></p>
                     <ul>
-                        <li>Python</li>
-                        <li>OCR with Tesseract</li>
-                        <li>GUI with Tkinter</li>
-                        <li>Screen capture and image processing with PIL and OpenCV</li>
+                        <li><code>Python 3.x</code></li>
+                        <li><code>OCR</code> with <code>Tesseract</code></li>
+                        <li>GUI with <code>Tkinter</code></li>
+                        <li>Screen capture and image processing with <code>PIL</code> and <code>OpenCV</code></li>
                     </ul>
                     <p><strong>Code:</strong> <a href="https://github.com/J-danger/d2rangecheck" target="_blank">View Code</a></p>
                 </div>                
@@ -146,27 +144,24 @@
                     <p>This project focuses on detecting and analyzing mouse movements in video footage. Key features include:</p>
                     <p><strong>Key Features:</strong></p>
                     <ul>
-                        <li><strong>Mouse Movement Detection:</strong> Detects mouse movement between consecutive video frames using OpenCV.</li>
+                        <li><strong>Mouse Movement Detection:</strong> Detects mouse movement between consecutive video frames using <code>OpenCV</code>.</li>
                         <li><strong>Velocity Calculation:</strong> Computes the velocity of mouse movement on the Y-axis and analyzes it over time.</li>
-                        <li><strong>Visualization:</strong> Plots mouse velocity data using Matplotlib to compare different scenarios.</li>
+                        <li><strong>Visualization:</strong> Plots mouse velocity data using <code>Matplotlib</code> to compare different scenarios.</li>
                     </ul>
                     <p><strong>Tools and Libraries Used:</strong></p>
                     <ul>
-                        <li>Python</li>
-                        <li><code>OpenCV</code> for Computer Vision</li>
-                        <li><code>NumPy</code></li>
-                        <li><code>Matplotlib</code> for Visualization</li>
+                        <li><code>Python 3.x</code></li>
+                        <li><code>OpenCV</code> for video processing</li>
+                        <li><code>Matplotlib</code> for data visualization</li>
                     </ul>
-                    <p><strong>Code:</strong> <a href="https://github.com/J-danger/MouseVelocityPlot" target="_blank">View Code</a></p>
+                    <p><strong>Code:</strong> <a href="https://github.com/J-danger/mouse_movement_detection" target="_blank">View Code</a></p>
+                    <div class="project-image"></div>
                 </div>
-            </div>
+            </div> -->
         </section>
     </div>
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
 </body>
-<footer id="footer-project">
-    <p>&copy; 2024 My Portfolio. All rights reserved.</p>
-</footer>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </html>

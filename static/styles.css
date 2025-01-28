@@ -116,6 +116,7 @@ footer {
 
 .projects { 
     height: 100vh;
+    margin-bottom: 20px;
 }
 
 .three-section-container {
@@ -186,5 +187,17 @@ footer {
 
 .contact-links a:hover {
     color: #007bff;
+}
+
+.about {
+    width: 100%;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.container-aboutMe {
+    max-width: 50%;
+    margin: 0 auto;
 }
 
