@@ -28,7 +28,7 @@
         }
 
         .container {
-            max-width: 800px; /* Adjust for a more book-like reading experience */
+            max-width: 60%; /* Adjust for a more book-like reading experience */
             margin: 0 auto;
             padding: 2rem 1.5rem; /* Increased padding for better readability */
         }
@@ -100,6 +100,18 @@
         .back-button i {
             margin-right: 0.5rem;
         }
+        pre {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 10px;
+            
+        }
+        h2 {
+            color: var(--accent-color);
+        }
+        h3 {
+            color: var(--text-color);
+        }
     </style>
 </head>
 <body>
@@ -121,9 +133,94 @@
                 // Mock data for blog posts
                 const blogPosts = {
                     '1': {
-                        title: 'How Blockchain Transactions Get Validated',
-                        content: '<p>A guide into how blockchain transactions are validated and how Nodes ensure the integrity of the blockchain.</p><img src="path/to/your/image.jpg" alt="Blockchain Validation Diagram"><p>In the world of blockchain, validation of transactions is crucial. Each transaction on a blockchain must be verified by nodes, which are essentially computers participating in the network. Here\'s how it works:</p><p>1. <strong>Transaction Broadcast</strong>: When a user initiates a transaction, it gets broadcasted to the network.</p><p>2. <strong>Node Verification</strong>: Nodes pick up this transaction and verify it against several rules like the sender\'s balance, transaction format, and digital signatures.</p><p>3. <strong>Inclusion in a Block</strong>: If verified, the transaction is grouped with others into a block. Miners or validators then compete to add this block to the chain.</p><p>4. <strong>Consensus Mechanism</strong>: Depending on the blockchain (like Bitcoin\'s Proof of Work or Ethereum\'s move to Proof of Stake), a consensus must be reached to add the block. This ensures that all nodes agree on the state of the blockchain.</p><p>5. <strong>Block Validation</strong>: Once added, the block is further validated by other nodes. If over 51% of the network\'s computational power agrees, the block is considered valid.</p><p>This process ensures that transactions are not only recorded but are also secure, transparent, and immutable, maintaining the integrity of the blockchain.</p>'
-                    },
+                title: 'How Bitcoin Transactions Get Validated: A Technical Deep Dive',
+                content: `<h2>Introduction</h2>
+                <p>Bitcoin's transaction validation process is the cornerstone of its security, immutability, and trustless design. This guide dives into the technical specifics of how Bitcoin transactions are validated and how nodes maintain the integrity of the blockchain.</p>
+                <hr>
+                <h2>1. The Bitcoin Transaction Lifecycle</h2>
+                <h3>1.1 Transaction Structure</h3>
+                <p>A Bitcoin transaction consists of the following components:</p>
+                <ul>
+                    <li><strong>Inputs</strong>: References to previous transaction outputs that fund the current transaction.</li>
+                    <li><strong>Outputs</strong>: Specifies where the Bitcoin is sent (to one or more addresses).</li>
+                    <li><strong>ScriptSig</strong>: The unlocking script that proves the sender has authority to spend the funds.</li>
+                    <li><strong>ScriptPubKey</strong>: The locking script that defines the conditions required to spend the funds in the future.</li>
+                </ul>
+                <pre><code>Transaction Structure:
+{
+  "version": 1,
+  "vin": [
+    {
+      "txid": "previous_transaction_id",
+      "vout": 0,
+      "scriptSig": "unlocking_script",
+      "sequence": 4294967295
+    }
+  ],
+  "vout": [
+    {
+      "value": 0.01,
+      "scriptPubKey": "locking_script"
+    }
+  ],
+  "locktime": 0
+}</code></pre>
+                <h3>1.2 Transaction Broadcast</h3>
+                <p>When a user initiates a transaction, it is broadcasted to the Bitcoin network using a peer-to-peer protocol. Nodes relay the transaction to their peers, ensuring it propagates across the network.</p>
+                
+                <h2>2. Node Validation Process</h2>
+                <p>Bitcoin nodes perform several critical checks to validate transactions:</p>
+                <h3>2.1 Script Verification</h3>
+                <p>Nodes verify the transaction's scripts using Bitcoin's scripting language (similar to Forth). The scriptSig must satisfy the conditions set by the scriptPubKey from the referenced input.</p>
+                <p>Example of a P2PKH (Pay-to-Public-Key-Hash) transaction:</p>
+                <pre><code>scriptPubKey: OP_DUP OP_HASH160 [pubkey_hash] OP_EQUALVERIFY OP_CHECKSIG
+scriptSig: [signature] [pubkey]</code></pre>
+                <h3>2.2 Double-Spending Check</h3>
+                <p>Nodes ensure the transaction inputs have not been previously spent by checking the blockchain's history.</p>
+                <h3>2.3 Transaction Fee Check</h3>
+                <p>Nodes verify that the transaction includes sufficient fees to be included in a block. Fees are typically measured in satoshi per byte (sats/vB).</p>
+                <h3>2.4 Transaction Size Check</h3>
+                <p>Transactions must not exceed the maximum allowed size (currently 4,000,000 bytes).</p>
+                
+                <h2>3. Mining and Block Inclusion</h2>
+                <h3>3.1 Proof of Work (PoW)</h3>
+                <p>Bitcoin uses Proof of Work to achieve consensus. Miners compete to solve a cryptographic puzzle, which involves finding a nonce that results in a block hash below a target threshold.</p>
+                <pre><code>Block Header Structure:
+{
+  "version": 1,
+  "prevBlockHash": "previous_block_hash",
+  "merkleRoot": "transaction_merkle_root",
+  "timestamp": current_time,
+  "bits": difficulty_target,
+  "nonce": random_number
+}</code></pre>
+                <h3>3.2 Block Validation</h3>
+                <p>Once a block is mined, nodes validate it by:</p>
+                <ul>
+                    <li>Verifying the Proof of Work.</li>
+                    <li>Checking the Merkle tree to ensure all transactions are included.</li>
+                    <li>Ensuring the block size and weight comply with network limits.</li>
+                </ul>
+                <h3>3.3 Orphaned Blocks</h3>
+                <p>If a block is not accepted by the network (e.g., due to conflicting transactions), it becomes an orphaned block. Nodes discard orphaned blocks and continue mining on the longest valid chain.</p>
+                
+                <h2>4. Consensus Mechanisms</h2>
+                <h3>4.1 Nakamoto Consensus</h3>
+                <p>Bitcoin's consensus rules ensure that all nodes agree on the state of the blockchain. Key rules include:</p>
+                <ul>
+                    <li>Block size limit (1 MB for legacy blocks, 4 MB for SegWit blocks).</li>
+                    <li>Maximum money supply (21 million Bitcoin).</li>
+                    <li>Difficulty adjustment every 2016 blocks.</li>
+                </ul>
+                <h3>4.2 51% Attack Resistance</h3>
+                <p>Bitcoin's network security is designed to resist 51% attacks. The high computational power required to control the network makes such attacks economically unfeasible.</p>
+                
+                <h2>5. Lightning Network Integration</h2>
+                <p>Bitcoin's layer-2 solutions, like the Lightning Network, enable off-chain transactions while maintaining blockchain security. Nodes validate Lightning channels by enforcing the rules of the Lightning protocol, ensuring transactions are settled on-chain when necessary.</p>
+                
+                <h2>Conclusion</h2>
+                <p>Bitcoin's transaction validation process is a marvel of cryptographic engineering. From script verification to mining and consensus, every step ensures the integrity and security of the network. Understanding these technical details is essential for appreciating Bitcoin's resilience and innovation.</p>`
+            },
                     '2': {
                         title: 'Liquidity Interconnectivity and Interoperability',
                         content: '<p>How blockchain markets are interconnected and interoperable, and how they can be used to create more efficient and secure financial systems.</p><img src="path/to/your/image2.jpg" alt="Liquidity Diagram"><p>Blockchain markets have evolved to become highly interconnected, sharing liquidity across different platforms. This interconnectivity enhances:</p><p>1. <strong>Market Efficiency</strong>: By allowing liquidity to flow between exchanges, it reduces price discrepancies and increases market liquidity.</p><p>2. <strong>Interoperability</strong>: Different blockchains can communicate and share data or assets, leading to innovations like cross-chain transactions.</p><p>3. <strong>Security</strong>: A more connected ecosystem can distribute risk, making it harder for single points of failure or attacks.</p><p>4. <strong>Innovation in DeFi</strong>: Decentralized Finance (DeFi) benefits greatly from this, enabling new financial products that leverage the strengths of multiple blockchain networks.</p>'
