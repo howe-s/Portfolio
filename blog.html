@@ -102,15 +102,18 @@
         }
         pre {
             background-color: var(--primary-color);
-            color: var(--secondary-color);
+            color: var(--light-color);
             padding: 10px;
             
         }
         h2 {
-            color: var(--accent-color);
+            color: var(--light-color);
         }
         h3 {
-            color: var(--text-color);
+            color: var(--accent-color);
+        }
+        ul {
+            color: var(--light-color);
         }
     </style>
 </head>
@@ -127,12 +130,9 @@
         <p>© 2024 Steve Howe. All rights reserved.</p>
     </footer>
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            // Function to fetch blog content
-            function fetchBlogContent(postId) {
-                // Mock data for blog posts
-                const blogPosts = {
-                    '1': {
+       // blog-generator.js
+        const blogContent = {
+            '1': {
                 title: 'How Bitcoin Transactions Get Validated: A Technical Deep Dive',
                 content: `<h2>Introduction</h2>
                 <p>Bitcoin's transaction validation process is the cornerstone of its security, immutability, and trustless design. This guide dives into the technical specifics of how Bitcoin transactions are validated and how nodes maintain the integrity of the blockchain.</p>
@@ -146,25 +146,26 @@
                     <li><strong>ScriptSig</strong>: The unlocking script that proves the sender has authority to spend the funds.</li>
                     <li><strong>ScriptPubKey</strong>: The locking script that defines the conditions required to spend the funds in the future.</li>
                 </ul>
+                <img src="/static/transactionReference.png" alt="Transaction Structure Diagram"><p>For example, a simple transaction might look like this:</p>
                 <pre><code>Transaction Structure:
-{
-  "version": 1,
-  "vin": [
-    {
-      "txid": "previous_transaction_id",
-      "vout": 0,
-      "scriptSig": "unlocking_script",
-      "sequence": 4294967295
-    }
-  ],
-  "vout": [
-    {
-      "value": 0.01,
-      "scriptPubKey": "locking_script"
-    }
-  ],
-  "locktime": 0
-}</code></pre>
+        {
+        "version": 1,
+        "vin": [
+            {
+            "txid": "previous_transaction_id",
+            "vout": 0,
+            "scriptSig": "unlocking_script",
+            "sequence": 4294967295
+            }
+        ],
+        "vout": [
+            {
+            "value": 0.01,
+            "scriptPubKey": "locking_script"
+            }
+        ],
+        "locktime": 0
+        }</code></pre>
                 <h3>1.2 Transaction Broadcast</h3>
                 <p>When a user initiates a transaction, it is broadcasted to the Bitcoin network using a peer-to-peer protocol. Nodes relay the transaction to their peers, ensuring it propagates across the network.</p>
                 
@@ -174,7 +175,7 @@
                 <p>Nodes verify the transaction's scripts using Bitcoin's scripting language (similar to Forth). The scriptSig must satisfy the conditions set by the scriptPubKey from the referenced input.</p>
                 <p>Example of a P2PKH (Pay-to-Public-Key-Hash) transaction:</p>
                 <pre><code>scriptPubKey: OP_DUP OP_HASH160 [pubkey_hash] OP_EQUALVERIFY OP_CHECKSIG
-scriptSig: [signature] [pubkey]</code></pre>
+        scriptSig: [signature] [pubkey]</code></pre>
                 <h3>2.2 Double-Spending Check</h3>
                 <p>Nodes ensure the transaction inputs have not been previously spent by checking the blockchain's history.</p>
                 <h3>2.3 Transaction Fee Check</h3>
@@ -186,14 +187,14 @@ scriptSig: [signature] [pubkey]</code></pre>
                 <h3>3.1 Proof of Work (PoW)</h3>
                 <p>Bitcoin uses Proof of Work to achieve consensus. Miners compete to solve a cryptographic puzzle, which involves finding a nonce that results in a block hash below a target threshold.</p>
                 <pre><code>Block Header Structure:
-{
-  "version": 1,
-  "prevBlockHash": "previous_block_hash",
-  "merkleRoot": "transaction_merkle_root",
-  "timestamp": current_time,
-  "bits": difficulty_target,
-  "nonce": random_number
-}</code></pre>
+        {
+        "version": 1,
+        "prevBlockHash": "previous_block_hash",
+        "merkleRoot": "transaction_merkle_root",
+        "timestamp": current_time,
+        "bits": difficulty_target,
+        "nonce": random_number
+        }</code></pre>
                 <h3>3.2 Block Validation</h3>
                 <p>Once a block is mined, nodes validate it by:</p>
                 <ul>
@@ -221,32 +222,40 @@ scriptSig: [signature] [pubkey]</code></pre>
                 <h2>Conclusion</h2>
                 <p>Bitcoin's transaction validation process is a marvel of cryptographic engineering. From script verification to mining and consensus, every step ensures the integrity and security of the network. Understanding these technical details is essential for appreciating Bitcoin's resilience and innovation.</p>`
             },
-                    '2': {
-                        title: 'Liquidity Interconnectivity and Interoperability',
-                        content: '<p>How blockchain markets are interconnected and interoperable, and how they can be used to create more efficient and secure financial systems.</p><img src="path/to/your/image2.jpg" alt="Liquidity Diagram"><p>Blockchain markets have evolved to become highly interconnected, sharing liquidity across different platforms. This interconnectivity enhances:</p><p>1. <strong>Market Efficiency</strong>: By allowing liquidity to flow between exchanges, it reduces price discrepancies and increases market liquidity.</p><p>2. <strong>Interoperability</strong>: Different blockchains can communicate and share data or assets, leading to innovations like cross-chain transactions.</p><p>3. <strong>Security</strong>: A more connected ecosystem can distribute risk, making it harder for single points of failure or attacks.</p><p>4. <strong>Innovation in DeFi</strong>: Decentralized Finance (DeFi) benefits greatly from this, enabling new financial products that leverage the strengths of multiple blockchain networks.</p>'
-                    }
-                };
-
-                // Check if the post exists
-                if (blogPosts[postId]) {
-                    const blogContent = document.getElementById('blog-content');
-                    blogContent.innerHTML = `<h1>${blogPosts[postId].title}</h1>${blogPosts[postId].content}`;
-                } else {
-                    // If no post found, display an error or default message
-                    document.getElementById('blog-content').innerHTML = '<h1>Post Not Found</h1><p>The blog post you are looking for does not exist.</p>';
-                }
+            '2': {
+                title: 'Liquidity Interconnectivity and Interoperability',
+                content: '<p>How blockchain markets are interconnected and interoperable, and how they can be used to create more efficient and secure financial systems.</p><img src="path/to/your/image2.jpg" alt="Liquidity Diagram"><p>Blockchain markets have evolved to become highly interconnected, sharing liquidity across different platforms. This interconnectivity enhances:</p><p>1. <strong>Market Efficiency</strong>: By allowing liquidity to flow between exchanges, it reduces price discrepancies and increases market liquidity.</p><p>2. <strong>Interoperability</strong>: Different blockchains can communicate and share data or assets, leading to innovations like cross-chain transactions.</p><p>3. <strong>Security</strong>: A more connected ecosystem can distribute risk, making it harder for single points of failure or attacks.</p><p>4. <strong>Innovation in DeFi</strong>: Decentralized Finance (DeFi) benefits greatly from this, enabling new financial products that leverage the strengths of multiple blockchain networks.</p>'
             }
+        };
 
-            // Get the post ID from the URL
+        function loadBlogContent(postId) {
+            const blogContentDiv = document.getElementById('blog-content');
+            if (blogContent[postId]) {
+                const content = blogContent[postId];
+                blogContentDiv.innerHTML = `
+                    <h1>${content.title}</h1>
+                    ${content.content}
+                `;
+            } else {
+                blogContentDiv.innerHTML = `
+                    <h1>Post Not Found</h1>
+                    <p>The blog post you are looking for does not exist.</p>
+                `;
+            }
+        }
+
+        // Initialize when the DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const postId = urlParams.get('id');
-
-            // Fetch and display the content if an ID is provided
+            
             if (postId) {
-                fetchBlogContent(postId);
+                loadBlogContent(postId);
             } else {
-                // Default behavior if no ID is provided
-                document.getElementById('blog-content').innerHTML = '<h1>Welcome to My Blog</h1><p>Please select a post from the main page to view its content.</p>';
+                blogContentDiv.innerHTML = `
+                    <h1>Welcome to My Blog</h1>
+                    <p>Please select a post from the main page to view its content.</p>
+                `;
             }
         });
     </script>
