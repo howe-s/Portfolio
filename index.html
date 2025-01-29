@@ -90,34 +90,39 @@
 
         .contact-links {
             display: flex;
-            justify-content: center; /* Center the grid */
+            justify-content: center;
             margin-top: 2rem;
             animation: fadeIn 2.5s ease-in-out;
         }
 
         .contact-grid {
             display: flex;
-            gap: 1.5rem; /* Adjust gap as needed */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            width: 100%;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            
+            padding: 0.5rem;
+            width: 156px; /* Set to match the width from your screenshot */
+            box-sizing: border-box; /* Ensures padding is included in width calculation */
+            justify-content: center;
         }
 
         .contact-item a {
+            width: 100%; /* Ensures the link fills the entire contact item */
             display: flex;
             align-items: center;
             color: var(--text-color);
             text-decoration: none;
             transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1.25rem;
             border-radius: 0.5rem;
             background-color: var(--dark-color);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            padding: 1rem 1.5rem;
         }
 
         .contact-item a:hover {
@@ -133,6 +138,44 @@
 
         .contact-item span {
             font-size: 1rem;
+        }
+
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 768px) {
+            .contact-grid {   
+                display: grid;             
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-item {
+                width: 100%;
+                /* margin-bottom: 1rem; */
+            }
+
+            .contact-item a {
+                /* padding: 0.5rem 1rem;
+                font-size: 0.9rem; */
+            }
+
+            .contact-item span {
+                /* font-size: 0.85rem; */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-item a {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .contact-item span {
+                font-size: 0.8rem;
+            }
+
+            .contact-grid {
+                gap: 0.5rem;
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Projects Section */
@@ -355,7 +398,7 @@
         <div class="container-home-content">
             <h1 class="container-home-heading">Hi, I'm Steve</h1>
             <p class="container-home-description">
-                I specialize in Bitcoin, Blockchains, and Web Development.</p>
+                A blockchain application developer </p>
             </p>
             <!-- <p class="container-home-subdescription">
                 Formerly ShapeShift.io, Mandala.Exchange, and SimpleDeFi.io
@@ -400,11 +443,11 @@
         <div class="projects-grid">
             <div class="project-card">
                 <h3>Arbscreener</h3>
-                <p>Identifies arbitrage opportunities using the Dexscreener API.</p>
+                <p>Identifies arbitrage opportunities using the Dexscreener API</p>
                 <p><strong>Key Features:</strong></p>
                 <ul>
-                    <li><strong>Dynamic HTML Generation:</strong> Generates HTML content dynamically to show token pairs and related details.</li>
-                    <li><strong>API Integration:</strong> Integrates with Dexscreener to fetch real-time token pair data.</li>
+                    <li><strong>Dynamic HTML Generation:</strong> Generates HTML content dynamically to show token pairs and related details</li>
+                    <li><strong>API Integration:</strong> Integrates with Dexscreener to fetch real-time token pair data</li>
                 </ul>
                 <p><strong>Tools and Libraries Used:</strong></p>
                 <ul>
@@ -419,9 +462,9 @@
                 <p>A Flask to check your Solana wallet balance at a certain block</p>
                 <p><strong>Key Features:</strong></p>
                 <ul>
-                    <li><strong>SolScan.io CSV support:</strong> Drag and drop your transcation history.</li>
-                    <li><strong>Block Selection:</strong> See your wallet balance on a specified block.</li>
-                    <li><strong>Easy Taxes:</strong> Never manually calculate end-of-month balances again.</li>                        
+                    <li><strong>SolScan.io CSV support:</strong> Drag and drop your transcation history</li>
+                    <li><strong>Block Selection:</strong> See your wallet balance on a specified block</li>
+                    <li><strong>Easy Taxes:</strong> Never manually calculate end-of-month balances again</li>                        
                 </ul>
                 <p><strong>Tools and Libraries Used:</strong></p>
                 <ul>                        
@@ -441,12 +484,12 @@
                 <div class="blog-post" data-post-id="1">
                     <h3>How blockchain transactions get validated</h3>
                     <p>A guide into how blockchain transactions are validated and how Nodes ensure the integrity of the blockchain.</p>
-                    <!-- <a href="blog.html?id=1" class="btn btn-primary">Read More</a> -->
+                    <a href="blog.html?id=1" class="btn btn-primary">Read More</a>
                 </div>
                 <div class="blog-post" data-post-id="2">
                     <h3>Liquidity Interconnectivity and Interoperability</h3>
                     <p>How blockchain markets are interconnected and interoperable, and how they can be used to create more efficient and secure financial systems.</p>
-                    <!-- <a href="blog.html?id=2" class="btn btn-primary">Read More</a> -->
+                    <a href="blog.html?id=2" class="btn btn-primary">Read More</a>
                 </div>
                 <!-- Add more blog posts as needed -->
             </div>    

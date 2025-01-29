@@ -162,33 +162,76 @@ footer {
     position: fixed;
 }
 
-
 .container-contact {
     margin-top: 20px;
 }
 
 .contact-links {
     display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    margin-top: 200px;
+    justify-content: center;
+    margin-top: 2rem;
+    animation: fadeIn 2.5s ease-in-out;
 }
 
-.contact-links a {
-    color: #333;
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    gap: 1.5rem;
+    justify-content: center; /* Center the items */
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: calc(50% - 1.5rem); /* Adjust width to fit two items per row */
+}
+
+.contact-item a {
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
     text-decoration: none;
-    font-size: 1.3em;
-    margin: 0 10px;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--dark-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    width: 100%; /* Ensure the link takes full width of the item */
+    justify-content: center; /* Center content within the link */
 }
 
-.contact-links a i {
-    margin-right: 8px;
+.contact-item a:hover {
+    color: var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.contact-links a:hover {
-    color: #007bff;
+.contact-item i {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
 }
 
+.contact-item span {
+    font-size: 1rem;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .contact-grid {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .contact-item {
+        width: 100%; /* Full width for each item */
+        margin-bottom: 1rem; /* Add spacing between rows */
+    }
+
+    /* Ensure specific order for small screens */
+    .contact-item.email, .contact-item.linkedin {
+        order: -1; /* Negative order to bring these to the top */
+    }
+}
 .about {
     width: 100%;
     display: flex; 
@@ -200,4 +243,3 @@ footer {
     max-width: 50%;
     margin: 0 auto;
 }
-
