@@ -1,1 +1,1 @@
-https://howe-steve.github.io/Staticportfolio/
+https://howe-steve.github.io/Portfolio/
