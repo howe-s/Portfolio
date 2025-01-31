@@ -30,7 +30,4 @@ A responsive portfolio website showcasing blockchain development projects and te
 MIT License - feel free to use and modify for your own portfolio
 
 ## Contact
-
-Steve Howe
 - GitHub: [@howe-steve](https://github.com/howe-steve)
-- Twitter: [@bunt_btc](https://x.com/bunt_btc)
