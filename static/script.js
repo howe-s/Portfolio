@@ -44,8 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
 // Form submission handling
 document.querySelector('.contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    // Add your form submission logic here
-    alert('Thank you for your message! I will get back to you soon.');
+    
+    const name = this.querySelector('input[type="text"]').value;
+    const email = this.querySelector('input[type="email"]').value;
+    const message = this.querySelector('textarea').value;
+    
+    const mailtoLink = `mailto:howe.steve@outlook.com?subject=Portfolio Contact from ${name}&body=From: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`;
+    
+    window.location.href = mailtoLink;
     this.reset();
 });
 
