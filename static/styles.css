@@ -15,6 +15,12 @@ body {
     color: var(--light-color);
     line-height: 1.7;
     overflow-x: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body.loaded {
+    opacity: 1;
 }
 
 /* Navigation */
@@ -342,7 +348,7 @@ footer {
     height: 3px;
     background-color: var(--secondary-color);
     transform-origin: left;
-    animation: loading 2s ease-in-out infinite;
+    opacity: 0.7;
     z-index: 2000;
 }
 
@@ -427,4 +433,15 @@ footer {
     font-size: 1.5rem;
     opacity: 0.8;
     z-index: 1;
+}
+
+#blog-content {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    position: relative;
+    z-index: 1;
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
 }

@@ -48,3 +48,48 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
     alert('Thank you for your message! I will get back to you soon.');
     this.reset();
 });
+
+async function loadBlogContent(postId) {
+    console.log('Loading blog content for post ID:', postId);
+    const blogContentDiv = document.getElementById('blog-content');
+    if (!blogContentDiv) {
+        console.error('Blog content div not found');
+        return;
+    }
+
+    const content = await fetchBlogContent();
+    console.log('Fetched content:', content);
+    
+    if (content && content[postId]) {
+        const post = content[postId];
+        console.log('Found post:', post);
+        document.title = `${post.title} | Steve Howe`;
+        blogContentDiv.innerHTML = `
+            <h1>${post.title}</h1>
+            ${post.content}
+        `;
+    } else {
+        console.log('Post not found for ID:', postId);
+        blogContentDiv.innerHTML = `
+            <h1>Post Not Found</h1>
+            <p>The blog post you are looking for does not exist. <a href="index.html">Return to home</a></p>
+        `;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    console.log('DOM Content Loaded');
+    const urlParams = new URLSearchParams(window.location.search);
+    const postId = urlParams.get('id');
+    console.log('URL Parameter ID:', postId);
+    
+    if (postId) {
+        await loadBlogContent(postId);
+    } else {
+        const blogContentDiv = document.getElementById('blog-content');
+        blogContentDiv.innerHTML = `
+            <h1>Welcome to My Blog</h1>
+            <p>Please select a post from the <a href="index.html#blog">main page</a> to view its content.</p>
+        `;
+    }
+});

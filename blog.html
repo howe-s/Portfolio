@@ -9,14 +9,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/styles.css">
     <style>
-        @import url('static/styles.css');
-
         /* Blog-specific styles */
         .container {
             max-width: 60%;
             margin: 0 auto;
             padding: 2rem 1.5rem;
+            margin-top: 60px;
         }
 
         .blog-content {
@@ -25,7 +25,18 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             padding: 2rem;
             border: 1px solid var(--border-color);
-            margin-top: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .blog-content h1,
+        .blog-content h2,
+        .blog-content h3,
+        .blog-content p,
+        .blog-content ul,
+        .blog-content ol {
+            opacity: 1;
+            visibility: visible;
         }
 
         .blog-content h1 {
@@ -117,229 +128,79 @@
         <p></p>
     </footer>
     <script>
-       // blog-generator.js
-        const blogContent = {
-            '1': {
-                title: 'How Bitcoin Transactions Get Validated: A Technical Deep Dive',
-                content: `<h2>Introduction</h2>
-                <p>Bitcoin's transaction validation process is the cornerstone of its security, immutability, and trustless design. This guide dives into the technical specifics of how Bitcoin transactions are validated and how nodes maintain the integrity of the blockchain.</p>
-                <hr>
-                <h2>1. The Bitcoin Transaction Lifecycle</h2>
-                <h3>1.1 Transaction Structure</h3>
-                <p>A Bitcoin transaction consists of the following components:</p>
-                <ul>
-                    <li><strong>Inputs</strong>: References to previous transaction outputs that fund the current transaction.</li>
-                    <li><strong>Outputs</strong>: Specifies where the Bitcoin is sent (to one or more addresses).</li>
-                    <li><strong>ScriptSig</strong>: The unlocking script that proves the sender has authority to spend the funds.</li>
-                    <li><strong>ScriptPubKey</strong>: The locking script that defines the conditions required to spend the funds in the future.</li>
-                </ul>
-                <img src="/static/transactionReference.png" alt="Transaction Structure Diagram"><p>For example, a simple transaction might look like this:</p>
-                <pre><code>Transaction Structure:
-        {
-        "version": 1,
-        "vin": [
-            {
-            "txid": "previous_transaction_id",
-            "vout": 0,
-            "scriptSig": "unlocking_script",
-            "sequence": 4294967295
-            }
-        ],
-        "vout": [
-            {
-            "value": 0.01,
-            "scriptPubKey": "locking_script"
-            }
-        ],
-        "locktime": 0
-        }</code></pre>
-                <h3>1.2 Transaction Broadcast</h3>
-                <p>When a user initiates a transaction, it is broadcasted to the Bitcoin network using a peer-to-peer protocol. Nodes relay the transaction to their peers, ensuring it propagates across the network.</p>
+        // Improve error handling and add logging
+        async function fetchBlogContent() {
+            try {
+                console.log('Attempting to fetch blog content...'); // Debug log
+                const response = await fetch('assets/js/blog-content.json');
+                console.log('Response status:', response.status); // Debug log
                 
-                <h2>2. Node Validation Process</h2>
-                <p>Bitcoin nodes perform several critical checks to validate transactions:</p>
-                <h3>2.1 Script Verification</h3>
-                <p>Nodes verify the transaction's scripts using Bitcoin's scripting language (similar to Forth). The scriptSig must satisfy the conditions set by the scriptPubKey from the referenced input.</p>
-                <p>Example of a P2PKH (Pay-to-Public-Key-Hash) transaction:</p>
-                <pre><code>scriptPubKey: OP_DUP OP_HASH160 [pubkey_hash] OP_EQUALVERIFY OP_CHECKSIG
-        scriptSig: [signature] [pubkey]</code></pre>
-                <h3>2.2 Double-Spending Check</h3>
-                <p>Nodes ensure the transaction inputs have not been previously spent by checking the blockchain's history.</p>
-                <h3>2.3 Transaction Fee Check</h3>
-                <p>Nodes verify that the transaction includes sufficient fees to be included in a block. Fees are typically measured in satoshi per byte (sats/vB).</p>
-                <h3>2.4 Transaction Size Check</h3>
-                <p>Transactions must not exceed the maximum allowed size (currently 4,000,000 bytes).</p>
-                
-                <h2>3. Mining and Block Inclusion</h2>
-                <h3>3.1 Proof of Work (PoW)</h3>
-                <p>Bitcoin uses Proof of Work to achieve consensus. Miners compete to solve a cryptographic puzzle, which involves finding a nonce that results in a block hash below a target threshold.</p>
-                <pre><code>Block Header Structure:
-        {
-        "version": 1,
-        "prevBlockHash": "previous_block_hash",
-        "merkleRoot": "transaction_merkle_root",
-        "timestamp": current_time,
-        "bits": difficulty_target,
-        "nonce": random_number
-        }</code></pre>
-                <h3>3.2 Block Validation</h3>
-                <p>Once a block is mined, nodes validate it by:</p>
-                <ul>
-                    <li>Verifying the Proof of Work.</li>
-                    <li>Checking the Merkle tree to ensure all transactions are included.</li>
-                    <li>Ensuring the block size and weight comply with network limits.</li>
-                </ul>
-                <h3>3.3 Orphaned Blocks</h3>
-                <p>If a block is not accepted by the network (e.g., due to conflicting transactions), it becomes an orphaned block. Nodes discard orphaned blocks and continue mining on the longest valid chain.</p>
-                
-                <h2>4. Consensus Mechanisms</h2>
-                <h3>4.1 Nakamoto Consensus</h3>
-                <p>Bitcoin's consensus rules ensure that all nodes agree on the state of the blockchain. Key rules include:</p>
-                <ul>
-                    <li>Block size limit (1 MB for legacy blocks, 4 MB for SegWit blocks).</li>
-                    <li>Maximum money supply (21 million Bitcoin).</li>
-                    <li>Difficulty adjustment every 2016 blocks.</li>
-                </ul>
-                <h3>4.2 51% Attack Resistance</h3>
-                <p>Bitcoin's network security is designed to resist 51% attacks. The high computational power required to control the network makes such attacks economically unfeasible.</p>
-                
-                <h2>5. Lightning Network Integration</h2>
-                <p>Bitcoin's layer-2 solutions, like the Lightning Network, enable off-chain transactions while maintaining blockchain security. Nodes validate Lightning channels by enforcing the rules of the Lightning protocol, ensuring transactions are settled on-chain when necessary.</p>
-                
-                <h2>Conclusion</h2>
-                <p>Bitcoin's transaction validation process is a marvel of cryptographic engineering. From script verification to mining and consensus, every step ensures the integrity and security of the network. Understanding these technical details is essential for appreciating Bitcoin's resilience and innovation.</p>`
-            },
-            '2': {
-                title: 'Accessing Blockchain Data: Third-Party APIs vs Running Nodes',
-                content: `
-                <h2>Introduction</h2>
-                <p>Accessing blockchain data is crucial for dApp development, analytics, and research. Let's explore different approaches to fetch blockchain data, from using third-party APIs to running your own nodes.</p>
-
-                <h2>1. Third-Party API Solutions</h2>
-                
-                <h3>1.1 Ethereum Data via Etherscan API</h3>
-                <p>Etherscan provides a comprehensive API for accessing Ethereum blockchain data. Here's a simple example:</p>
-                <pre><code>// Fetch ETH balance using Etherscan API
-const ETHERSCAN_API_KEY = 'YOUR_API_KEY';
-const address = '0x742d35Cc6634C0532925a3b844Bc454e4438f44e';
-
-async function getEthBalance() {
-    const response = await fetch(
-        \`https://api.etherscan.io/api
-        ?module=account
-        &action=balance
-        &address=\${address}
-        &tag=latest
-        &apikey=\${ETHERSCAN_API_KEY}\`
-    );
-    const data = await response.json();
-    return web3.utils.fromWei(data.result, 'ether');
-}</code></pre>
-
-                <h3>1.2 Solana Data via SolScan</h3>
-                <p>SolScan offers REST APIs for Solana blockchain data:</p>
-                <pre><code>// Fetch SOL account info
-const SOLSCAN_API_KEY = 'YOUR_API_KEY';
-const solAddress = '8BdpZ6H9j4PfD4hpxGC5Mnji6gV9rqqnfE5MMJSsv4Nk';
-
-async function getSolanaAccountInfo() {
-    const response = await fetch(
-        \`https://public-api.solscan.io/account/\${solAddress}\`,
-        {
-            headers: {
-                'token': SOLSCAN_API_KEY
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                console.log('Blog content loaded:', data); // Debug log
+                return data;
+            } catch (error) {
+                console.error('Error loading blog content:', error);
+                // Display error in the blog content div
+                const blogContentDiv = document.getElementById('blog-content');
+                if (blogContentDiv) {
+                    blogContentDiv.innerHTML = `
+                        <h1>Error Loading Content</h1>
+                        <p>Error details: ${error.message}</p>
+                        <p>Please try again later or <a href="index.html">return to home</a></p>
+                    `;
+                }
+                return null;
             }
         }
-    );
-    return await response.json();
-}</code></pre>
 
-                <h2>2. Running Local Nodes</h2>
-
-                <h3>2.1 Setting Up an Ethereum Node</h3>
-                <p>Running your own Ethereum node provides direct blockchain access without rate limits or dependencies:</p>
-                <pre><code># Using Geth (Go Ethereum)
-# Installation
-sudo add-apt-repository -y ppa:ethereum/ethereum
-sudo apt-get update
-sudo apt-get install ethereum
-
-# Start node (fast sync)
-geth --syncmode "fast" --http --http.api "eth,net,web3"</code></pre>
-
-                <p>Then connect using Web3.js:</p>
-                <pre><code>const Web3 = require('web3');
-const web3 = new Web3('http://localhost:8545');
-
-async function getBlockData(blockNumber) {
-    return await web3.eth.getBlock(blockNumber);
-}</code></pre>
-
-                <h3>2.2 Running a Solana Node</h3>
-                <p>For Solana, you can run your own RPC node:</p>
-                <pre><code># Install Solana CLI
-sh -c "$(curl -sSfL https://release.solana.com/v1.14.17/install)"
-
-# Start local validator
-solana-test-validator
-
-# Connect using Web3.js
-const web3 = require('@solana/web3.js');
-const connection = new web3.Connection(
-    'http://localhost:8899',
-    'confirmed'
-);</code></pre>
-
-                <h2>3. Pros and Cons</h2>
-                <h3>Third-Party APIs</h3>
-                <ul>
-                    <li>✅ Quick to implement</li>
-                    <li>✅ No infrastructure maintenance</li>
-                    <li>❌ Rate limits</li>
-                    <li>❌ Dependency on external service</li>
-                </ul>
-
-                <h3>Local Nodes</h3>
-                <ul>
-                    <li>✅ No rate limits</li>
-                    <li>✅ Direct blockchain access</li>
-                    <li>✅ Better privacy</li>
-                    <li>❌ High hardware requirements</li>
-                    <li>❌ Maintenance overhead</li>
-                </ul>
-
-                <h2>Conclusion</h2>
-                <p>Choose your approach based on your needs: Third-party APIs are great for quick development and testing, while running local nodes provides more control and reliability for production environments. Many projects use a hybrid approach, maintaining their own nodes while using third-party APIs as fallbacks.</p>`
-            }
-        };
-
-        function loadBlogContent(postId) {
+        async function loadBlogContent(postId) {
+            console.log('Loading blog content for post ID:', postId); // Debug log
             const blogContentDiv = document.getElementById('blog-content');
-            if (blogContent[postId]) {
-                const content = blogContent[postId];
+            if (!blogContentDiv) {
+                console.error('Blog content div not found');
+                return;
+            }
+
+            const content = await fetchBlogContent();
+            console.log('Fetched content:', content); // Debug log
+            
+            if (content && content[postId]) {
+                const post = content[postId];
+                console.log('Found post:', post); // Debug log
+                document.title = `${post.title} | Steve Howe`;
                 blogContentDiv.innerHTML = `
-                    <h1>${content.title}</h1>
-                    ${content.content}
+                    <h1>${post.title}</h1>
+                    ${post.content}
                 `;
             } else {
+                console.log('Post not found for ID:', postId); // Debug log
                 blogContentDiv.innerHTML = `
                     <h1>Post Not Found</h1>
-                    <p>The blog post you are looking for does not exist.</p>
+                    <p>The blog post you are looking for does not exist. <a href="index.html">Return to home</a></p>
                 `;
             }
         }
 
         // Initialize when the DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log('DOM Content Loaded'); // Debug log
+            // Add the loaded class to make content visible
+            document.body.classList.add('loaded');
+            
             const urlParams = new URLSearchParams(window.location.search);
             const postId = urlParams.get('id');
+            console.log('URL Parameter ID:', postId); // Debug log
             
             if (postId) {
-                loadBlogContent(postId);
+                await loadBlogContent(postId);
             } else {
+                const blogContentDiv = document.getElementById('blog-content');
                 blogContentDiv.innerHTML = `
                     <h1>Welcome to My Blog</h1>
-                    <p>Please select a post from the main page to view its content.</p>
+                    <p>Please select a post from the <a href="index.html#blog">main page</a> to view its content.</p>
                 `;
             }
         });
