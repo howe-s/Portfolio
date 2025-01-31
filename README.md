@@ -2,6 +2,8 @@
 
 A responsive portfolio website showcasing blockchain development projects and technical blog posts.
 
+Delpoyed: https://howe-steve.github.io/Portfolio/
+
 ## Features
 
 - Responsive design
