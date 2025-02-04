@@ -445,3 +445,33 @@ footer {
     -moz-user-select: text;
     -ms-user-select: text;
 }
+
+.service-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 8px;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.service-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--light-color);
+}
+
+.service-description {
+    color: #8892b0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
