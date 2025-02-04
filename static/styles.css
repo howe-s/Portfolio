@@ -844,8 +844,7 @@ footer {
 /* Mobile -- 
 
 /* Mobile Specific Adjustments for Icon Sizes and Layout */
-/* Mobile Specific Adjustments for Icon Sizes and Layout */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     /* Adjusting Icon Sizes */
     .secondary-icon, .crypto-icon, .mechanism-icon, .use-case-icon, .network-icon, .feature-icon, .primary-icon, .metric-icon {
         font-size: 1rem !important;
