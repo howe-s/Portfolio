@@ -84,18 +84,24 @@ async function loadBlogContent(postId) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log('DOM Content Loaded');
-    const urlParams = new URLSearchParams(window.location.search);
-    const postId = urlParams.get('id');
-    console.log('URL Parameter ID:', postId);
+    // First check if we're on the blog page
+    const blogContentDiv = document.getElementById('blog-content');
     
-    if (postId) {
-        await loadBlogContent(postId);
-    } else {
-        const blogContentDiv = document.getElementById('blog-content');
-        blogContentDiv.innerHTML = `
-            <h1>Welcome to My Blog</h1>
-            <p>Please select a post from the <a href="index.html#blog">main page</a> to view its content.</p>
-        `;
+    if (blogContentDiv) {
+        // We're on the blog page, proceed with blog content loading
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get('id');
+        
+        if (postId) {
+            await loadBlogContent(postId);
+        } else {
+            blogContentDiv.innerHTML = `
+                <h1>Welcome to My Blog</h1>
+                <p>Please select a post from the <a href="index.html#blog">main page</a> to view its content.</p>
+            `;
+        }
     }
+    
+    // Add the loaded class regardless of which page we're on
+    document.body.classList.add('loaded');
 });
