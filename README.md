@@ -4,14 +4,6 @@ A responsive portfolio website showcasing blockchain development projects and te
 
 Delpoyed: https://howe-steve.github.io/Portfolio/
 
-## Features
-
-- Responsive design
-- Project showcase
-- Technical blog
-- Contact form
-- Performance optimized with resource hints and critical CSS
-
 ## Setup
 
 1. Clone the repository
