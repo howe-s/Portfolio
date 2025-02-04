@@ -2,7 +2,7 @@
 
 A responsive portfolio website showcasing blockchain development projects and technical blog posts.
 
-Delpoyed: https://howe-steve.github.io/Portfolio/
+Delpoyed: https://howe-s.github.io/Portfolio/
 
 ## Setup
 
@@ -24,4 +24,4 @@ Delpoyed: https://howe-steve.github.io/Portfolio/
 MIT License - feel free to use and modify for your own portfolio
 
 ## Contact
-- GitHub: [@howe-steve](https://github.com/howe-steve)
+- GitHub: [@howe-steve](https://github.com/howe-s)
