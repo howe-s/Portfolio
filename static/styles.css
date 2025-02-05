@@ -916,10 +916,10 @@ footer {
     transition: transform 0.3s ease;
 }
 
-.bitcoin-performance:hover,
+/* .bitcoin-performance:hover,
 .ripple-performance:hover {
     transform: translateY(-5px);
-}
+} */
 
 .bitcoin-performance {
     border-left: 3px solid var(--bitcoin-color);
@@ -936,9 +936,9 @@ footer {
     transition: transform 0.3s ease;
 }
 
-.performance-card:hover {
+/* .performance-card:hover {
     transform: translateY(-2px);
-}
+} */
 
 .performance-card h4 {
     display: flex;
@@ -1000,9 +1000,9 @@ footer {
     font-size: 1.2rem;
 }
 
-.role-card:hover {
+/* .role-card:hover {
     transform: translateY(-5px);
-}
+} */
 
 .role-card h4 {
     color: var(--light-color);
