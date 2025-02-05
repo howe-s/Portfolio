@@ -441,11 +441,6 @@ footer {
     -ms-user-select: text;    
 }
 
-#blog-content p, #blog-content h1 {
-    max-width: 800px;
-}
-
-
 .service-card {
     background: rgba(255, 255, 255, 0.05);
     padding: 2rem;
