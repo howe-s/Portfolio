@@ -735,8 +735,7 @@ footer {
 }
 
 .supply-risks {
-    display: flex;
-    flex-direction: column;
+    display: flex;   
     align-items: center;
     text-align: center;
     justify-content: center;
