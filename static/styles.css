@@ -845,6 +845,85 @@ footer {
     font-weight: bold;
 }
 
+
+/* Performance Comparison Section */
+.performance-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.bitcoin-performance,
+.ripple-performance {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.bitcoin-performance {
+    border-left: 3px solid var(--secondary-color);
+}
+
+.ripple-performance {
+    border-left: 3px solid rgba(255, 99, 71, 0.5);
+}
+
+.performance-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.performance-card:hover {
+    transform: translateY(-2px);
+}
+
+.performance-card:last-child {
+    margin-bottom: 0;
+}
+
+.performance-card h4 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--light-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.performance-card i {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+}
+
+.performance-card p {
+    color: var(--text-color);
+    margin: 0;
+}
+
+.performance-metric {
+    font-size: 1.25rem;
+    color: var(--secondary-color);
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Key Difference Section */
+.key-difference {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-left: 3px solid var(--secondary-color);
+}
+
+.key-difference strong {
+    color: var(--secondary-color);
+}
+
 /* Mobile -- 
 
 /* Mobile Specific Adjustments for Icon Sizes and Layout */
@@ -1045,5 +1124,26 @@ footer {
     .xrp-premine span {
         display: block;
         margin: 0.25rem 0;
+    }
+
+    .performance-comparison {
+        grid-template-columns: 1fr;
+    }
+    
+    .bitcoin-performance,
+    .ripple-performance {
+        padding: 1rem;
+    }
+    
+    .performance-card {
+        padding: 1rem;
+    }
+    
+    .performance-card h4 {
+        font-size: 1rem;
+    }
+    
+    .performance-metric {
+        font-size: 1.1rem;
     }
 }
