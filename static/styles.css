@@ -268,6 +268,19 @@ body.loaded {
     padding: 2rem;
 }
 
+.contact-form .btn-primary {
+    color: var(--secondary-color);
+    background-color: rgba(39, 169, 225, 0.1);
+    border: 1px solid var(--secondary-color);
+}
+
+.contact-form .btn-primary:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
 .form-control {
     background-color: var(--primary-color);
     border: 1px solid var(--border-color);
@@ -282,10 +295,7 @@ body.loaded {
     box-shadow: 0 0 0 0.2rem rgba(100, 255, 218, 0.25);
 }
 
-.btn-primary {
-    background-color: transparent;
-    border: 1px solid var(--secondary-color);
-    color: var(--secondary-color);
+.btn-primary {    
     padding: 0.75rem 2rem;
     border-radius: 0.5rem;
     transition: all 0.3s ease;
@@ -294,6 +304,12 @@ body.loaded {
 .btn-primary:hover {
     background-color: rgba(100, 255, 218, 0.1);
     transform: translateY(-2px);
+}
+
+.btn-primary.mt-3.disabled {
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
 }
 
 /* Footer */
@@ -422,7 +438,7 @@ footer {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    /* background-color: var(--primary-color); */
+    background-color: var(--primary-color);
     color: var(--secondary-color);
     padding: 0.5rem;
     font-size: 1.5rem;
