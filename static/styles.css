@@ -626,9 +626,10 @@ footer {
     flex-shrink: 0;
 }
 
-.feature-icon.fa-key {
+.feature-icon.fa-key, .feature-icon.fa-tools, .feature-icon.fa-building {
     color: var(--ripple-color);
 }
+
 
 .feature-icon.fa-list-check {
     color: var(--ripple-color);
