@@ -514,21 +514,36 @@ footer {
 
 /* Blog Content Icons */
 .crypto-icon {
-    font-size: 3rem;
-    color: var(--secondary-color);
+    font-size: 5rem;    
     margin: 1rem;
+}
+
+.crypto-icon.fa-bitcoin {
+    color: var(--bitcoin-color)
+}
+
+.crypto-icon.fa-university {
+    color: var(--ripple-color);
 }
 
 .mechanism-icon {
     font-size: 2.5rem;
-    color: var(--secondary-color);
+    color: var(--bitcoin-color);
     margin-bottom: 1rem;
 }
 
+.mechanism-icon.fa-check-circle {
+    color: var(--ripple-color)
+}
+
 .use-case-icon {
-    font-size: 2rem;
-    color: var(--secondary-color);
+    font-size: 4rem;
+    color: var(--bitcoin-color);
     margin: 1rem;
+}
+
+.use-case-icon.fa-university, .use-case-icon.fa-globe {    
+    color: var(--ripple-color);    
 }
 
 .comparison-header {
@@ -569,9 +584,13 @@ footer {
 }
 
 .network-icon {
-    font-size: 3rem;  /* Made larger to match other icons */
-    color: var(--secondary-color);
+    font-size: 5rem;  /* Made larger to match other icons */
+    color: var(--bitcoin-color);
     margin: 1rem;
+}
+
+.network-icon.fa-sitemap {
+    color: var(--ripple-color);
 }
 
 .network-divider {
@@ -603,8 +622,16 @@ footer {
 
 .feature-icon {
     font-size: 1.5rem;
-    color: var(--secondary-color);
+    color: var(--bitcoin-color);
     flex-shrink: 0;
+}
+
+.feature-icon.fa-key {
+    color: var(--ripple-color);
+}
+
+.feature-icon.fa-list-check {
+    color: var(--ripple-color);
 }
 
 .node-feature p {
@@ -632,8 +659,12 @@ footer {
 
 .primary-icon {
     font-size: 2.5rem;
-    color: var(--secondary-color);
+    color: var(--bitcoin-color);
     margin-bottom: 1rem;
+}
+
+.primary-icon.fa-print, .primary-icon.fa-lock {
+    color: var(--ripple-color);
 }
 
 .distribution-card h4 {
@@ -657,8 +688,12 @@ footer {
 }
 
 .secondary-icon {
-    font-size: 1.5rem;
-    color: var(--secondary-color);
+    font-size: 2rem;
+    color: var(--bitcoin-color);
+}
+
+.secondary-icon.fa-faucet, .secondary-icon.fa-coins, .secondary-icon.fa-triangle-exclamation, .secondary-icon.fa-bank, .secondary-icon.fa-arrow-trend-down {
+    color: var(--ripple-color);
 }
 
 .fair-launch span {
@@ -847,7 +882,7 @@ footer {
 }
 
 #speed-scalability i {
-    color: var(--secondary-color);
+    /* color: var(--secondary-color); */
     font-size: 1.2rem;
 }
 
@@ -911,8 +946,12 @@ footer {
 }
 
 .performance-card i {
-    color: var(--secondary-color);
-    font-size: 1.2rem;
+    color: var(--bitcoin-color);
+    font-size: 2rem;
+}
+
+.performance-card i.fa-gauge-high, .performance-card i.fa-bolt, .performance-card i.fa-check-double {
+    color: var(--ripple-color);
 }
 
 .performance-card p {
@@ -920,13 +959,17 @@ footer {
     margin: 0;
 }
 
+
+
 .performance-metric {
     font-size: 1.25rem;
-    color: var(--secondary-color);
+    /* color: var(--secondary-color); */
     margin-top: 0.5rem;
     font-weight: 500;
 }
-
+.fab fa-bitcoin crypto-icon {
+    color: var(--bitcoin-color);
+}
 /* Bitcoin & Ripple Roles Sections */
 .bitcoin-roles,
 .ripple-roles {
@@ -978,10 +1021,14 @@ footer {
 
 .role-card ul li::before {
     content: "•";
-    color: var(--secondary-color);
+    color: var(--bitcoin-color);
     position: absolute;
     left: 0;
     font-weight: bold;
+}
+
+.role-card.ripple ul li::before {
+    color: var(--ripple-color);
 }
 
 .secondary-functions {
