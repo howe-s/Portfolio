@@ -693,7 +693,11 @@ footer {
     color: var(--bitcoin-color);
 }
 
-.secondary-icon.fa-faucet, .secondary-icon.fa-coins, .secondary-icon.fa-triangle-exclamation, .secondary-icon.fa-bank, .secondary-icon.fa-arrow-trend-down {
+.secondary-icon.fa-faucet, 
+.secondary-icon.fa-coins, 
+.secondary-icon.fa-triangle-exclamation, 
+.secondary-icon.fa-bank, 
+.secondary-icon.fa-arrow-trend-down {
     color: var(--ripple-color);
 }
 
