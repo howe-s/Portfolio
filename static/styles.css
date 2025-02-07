@@ -1325,3 +1325,10 @@ footer {
         margin-bottom: 1rem;
     }
 }
+
+/* Add this new style for the button container */
+.project-card .btn-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
