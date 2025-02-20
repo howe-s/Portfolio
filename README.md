@@ -21,7 +21,7 @@ Delpoyed: https://howe-s.github.io/Portfolio/
 
 ## License
 
-MIT License - feel free to use and modify for your own portfolio
+Feel free to use and modify for your own portfolio
 
 ## Contact
 - GitHub: [@howe-steve](https://github.com/howe-s)
