@@ -23,5 +23,3 @@ Delpoyed: https://howe-s.github.io/Portfolio/
 
 Feel free to use and modify for your own portfolio
 
-## Contact
-- GitHub: [@howe-steve](https://github.com/howe-s)
